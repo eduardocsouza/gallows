@@ -72,7 +72,8 @@
 
 .letterContainer button{
     padding: 0 3rem;
-    margin: 0;  
+    margin: 0;
+    margin-left: 2rem;  
 }
 
 .wrongLetterContainer{
