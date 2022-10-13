@@ -10,7 +10,7 @@ function Gamer({ gameover }: any) {
       <h3 className="tip">
         Dica sobre a palavara: <span>Dica...</span>
       </h3>
-
+      <p>Você ainda tem x tentativa(s)</p>
       <div className="wordContainer">
         <span className="letter">A</span>
         <span className="blackSquare"></span>
