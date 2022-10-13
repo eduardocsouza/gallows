@@ -1,0 +1,89 @@
+.game{
+  
+}
+
+.ponits{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: #b90000;
+    text-shadow: 0 1px #ffffff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.game h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #b90000;
+    text-shadow: 0 1px #ffffff;
+}
+.tip{
+    font-size: 1.5rem;
+    text-shadow: 2px 1px #000000;
+}
+
+.tip span{
+    color: #bbff00;
+}
+
+.wordContainer{
+    padding: 0.6rem;
+    border: 0.5rem #ff8e32 solid;
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.letter, .blackSquare{
+    color: #b90000;
+    /* background-color: #fff; */
+    font-size: 4rem;
+    font-weight:bold;
+    text-shadow: 1px 0 #ffffff;
+    height: 5rem;
+    width: 5rem;
+    border: 0.5rem solid #ffffff;
+    margin: 0.1rem;
+    border-radius: 5px;
+}
+
+.letterContainer p{
+    font-size: 1.2rem;
+    text-shadow: 2px 1px #000000;
+}
+
+.letterContainer input{
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    color: #000000;    
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: 0.2rem #ff8e32 solid;
+    border-radius: 5px;
+    outline: none;       
+}
+
+.letterContainer form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letterContainer button{
+    padding: 0 3rem;   
+}
+
+.wrongLetterContainer{
+    margin-top: 2rem;
+}
+
+.wrongLetterContainer p{
+    font-size: 1.5rem;
+    text-shadow: 2px 2px #000000;
+}
+
+.wrongLetterContainer span{
+    font-size: 1.5rem;
+    text-shadow: 2px 2px #000000;
+}
