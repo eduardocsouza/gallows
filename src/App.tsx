@@ -1,5 +1,5 @@
 //Hooks
-import { useState, useCallback, useEffect, FormEvent } from 'react';
+import { useState, useEffect} from 'react';
 
 //stylesheet
 import './App.css';
@@ -44,9 +44,6 @@ function App() {
    
     const word: string = words[category][Math.floor(Math.random() * words[category].length)];
 
-    console.log(word);
-    console.log(category)
-
     return {word, category};
   }
 
@@ -55,13 +52,15 @@ function App() {
     const {word, category} = clueRandor();
     let wordLetters: string[] = word.split("");
     
-    wordLetters.map((val) => val.toLowerCase());
+    const lttrs = wordLetters.map((val) => val.toLowerCase());
 
     setPickedWord(word);
     setPickedCategory(category);
-    setLetters(wordLetters);
-    
+    setLetters(lttrs);
+
     setGameStage(stage[1].name);
+
+    
   };
 
   function verifyLetter(letter: string){
@@ -71,21 +70,40 @@ function App() {
       (guessedLetters.includes(detailsLatter) ||
        wrongLetters.includes(detailsLatter)
     ){
-      return;
+      alert('Essa letra já foi utilizada!')
     }
 
     if(letters.includes(detailsLatter)){
       setGuessedLetters((prevGuessed) => [...prevGuessed, detailsLatter]);
-    }else{
+      setScore(score + 50);
+    }else{ 
       setWrongLetters((prevWrong) => [...prevWrong, detailsLatter]);
-    }
-
-    console.log(guessedLetters);
-    console.log(wrongLetters);
+      setGuesseds((prevGuesseds) => prevGuesseds -1);     
+    }     
 
   };
 
+  useEffect(() =>{
+
+    if(guessed <= 0){
+      setGameStage(stage[2].name);
+    }
+
+  }, [guessed]);
+
+  useEffect(() =>{
+
+    if(guessedLetters.length != 0 && guessedLetters.length === letters.length){
+      setGameStage(stage[2].name);
+    }
+    
+  }, [score]);
+
   function retry(): void{
+    setGuesseds(3);
+    setScore(0);
+    setGuessedLetters([]);
+    setWrongLetters([]);
     setGameStage(stage[0].name);
   }
   
@@ -95,7 +113,6 @@ function App() {
       {gameStage === 'game' && 
       <Gamer 
         gameover={verifyLetter} 
-        pickedWord={pickedWord} 
         pickedCategory={pickedCategory}
         letters={letters}
         guessedLetters={guessedLetters}
@@ -103,7 +120,8 @@ function App() {
         score={score}
         guessed={guessed}
       />}
-      {gameStage === 'gameover' && <GameOver retry={retry}/>}
+      {gameStage === 'gameover' 
+      && <GameOver retry={retry} score={score} pickedWord={pickedWord} wrongLetters={wrongLetters}/>}
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import { ChangeEvent, useState, useRef} from 'react'
 import './Gamer.css'
 
-function Gamer({ gameover, pickedWord, pickedCategory, letters, score, guessed, guessedLetters, wrongLetters}: any){
+function Gamer({ gameover, pickedCategory, letters, score, guessed, guessedLetters, wrongLetters}: any){
 
 
   const [letter, setLetter] = useState<string>("");
   const letterInpuRef = useRef<HTMLInputElement>(null);
 
+  
   function handleSubmit(e: ChangeEvent<HTMLFormElement>): void{
     e.preventDefault();
 
@@ -26,12 +27,12 @@ function Gamer({ gameover, pickedWord, pickedCategory, letters, score, guessed, 
       <h3 className="tip">
         Dica sobre a palavara: <span>{pickedCategory}</span>
       </h3>
-      <p>Você ainda tem {guessed} tentativa(s)</p>
+      <p className='try'>Você ainda tem {guessed} tentativa(s)</p>
       <div className="wordContainer">
-        {letters.map((v:string, i:number) => (
-          guessedLetters.includes(letters)
+        {letters.map((valor:string, i:number) => (
+          guessedLetters.includes(valor)
           ?
-          (<span key={i} className="letter">{v}</span>)
+          (<span key={i} className="letter">{valor}</span>)
           :
           (<span key={i} className="blackSquare"></span>)
         ))}
@@ -52,8 +53,8 @@ function Gamer({ gameover, pickedWord, pickedCategory, letters, score, guessed, 
         </form>
         <div className="wrongLetterContainer">
           <p>Letras já utilizadas</p>
-          {wrongLetters.map((l:string, i:number) =>(
-            <span key={i}>{l}, </span>
+          {wrongLetters.map((valor:string, indx:number) =>(
+            <span key={indx}>{valor}, </span>
           ))}
         </div>
       </div>

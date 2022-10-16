@@ -5,6 +5,11 @@
     text-shadow: 0 1px #ffffff;
     font-weight: bold;
     font-size: 1.5rem;
+    
+}
+
+.ponits span{
+    color: #bbff00;
 }
 
 .game h1{
@@ -22,6 +27,10 @@
     color: #bbff00;
 }
 
+.try{
+    color: yellow;
+    font-weight: bolder;
+}
 .wordContainer{
     padding: 0.6rem;
     border: 0.5rem #ff8e32 solid;
@@ -45,6 +54,8 @@
 .letterContainer p{
     font-size: 1.2rem;
     text-shadow: 2px 1px #000000;
+    color: yellow;
+    font-weight: bolder;
 }
 
 .letterContainer input{
@@ -53,7 +64,7 @@
     font-size: 2rem;
     color: #000000;    
     font-weight: bold;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: center;
     border: 0.2rem #ff8e32 solid;
     border-radius: 5px;

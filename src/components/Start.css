@@ -1,8 +1,16 @@
-.start h1{
+.start{
+    margin-top: 6rem;
+}
+.start h1 {
+    margin-top: 6rem;
     margin-top: 1rem;
-    font-size: 4rem;
+    font-size: 6rem;
+    color: #b90000;
+    text-shadow: 0 1px #ffffff;
 }
 
-.start p{
+.start p {
     color: yellow;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
