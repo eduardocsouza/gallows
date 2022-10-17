@@ -59,8 +59,6 @@ function App() {
     setLetters(lttrs);
 
     setGameStage(stage[1].name);
-
-    
   };
 
   function verifyLetter(letter: string){
@@ -75,7 +73,7 @@ function App() {
 
     if(letters.includes(detailsLatter)){
       setGuessedLetters((prevGuessed) => [...prevGuessed, detailsLatter]);
-      setScore(score + 50);
+      
     }else{ 
       setWrongLetters((prevWrong) => [...prevWrong, detailsLatter]);
       setGuesseds((prevGuesseds) => prevGuesseds -1);     
@@ -93,11 +91,15 @@ function App() {
 
   useEffect(() =>{
 
-    if(guessedLetters.length != 0 && guessedLetters.length === letters.length){
-      setGameStage(stage[2].name);
+    const uniqueletters = [...new Set(letters)]
+    
+    if(guessedLetters.length != 0 && guessedLetters.length === uniqueletters.length){
+      setScore(score + 100);
+      setGuessedLetters([]);
+      startGame();
     }
     
-  }, [score]);
+  }, [guessedLetters]);
 
   function retry(): void{
     setGuesseds(3);
